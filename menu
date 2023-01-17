@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #nav {
+            background-color: black;
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+            z-index: -1;
+            top: -100vh;
+            transition: 0.9s ease-in-out;
+        }
+        ul{
+            list-style: none;
+        }
+        li{
+            margin: 50px 0;
+            color: white;
+            font-size: 50px;
+            transition: 1s;
+        }
+        #ham{
+            width: 60px;
+            height: 20px;
+            background-color: black;
+            position: fixed;
+            text-align: center;
+            margin-top: 20px;
+        }
+        .cent{
+            display: flex;
+            justify-content: center;
+        }
+        #sec{
+            width: 100vw;
+            height: 100vh;
+            background-color: red;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+            transition: 1s ease-in-out;
+            position: relative;
+            z-index: -1;
+            top: -100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="row cent">
+        <div id="ham"></div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div id="nav">
+                <ul id="sec">
+                    <li>Home</li>
+                    <li>About Us</li>
+                    <li>Services</li>
+                    <li>Contact Us</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let sec = document.getElementById("sec")
+        let ham = document.getElementById("ham");
+        let nav = document.getElementById("nav");
+        nav.style.top == "-100vh";
+        sec.style.top =="-100vh";
+        ham.onclick=function(){
+            if(nav.style.top=="-100vh",sec.style.top =="-100vh"){
+                nav.style.top="0";
+                sec.style.top ="0";
+            }
+            else{
+                nav.style.top="-100vh";
+                sec.style.top ="-100vh";
+            }
+        }
+    </script>
+    
+    
+</body>
+</html>
