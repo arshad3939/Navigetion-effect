@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake, water, gun game</title>
+    <Style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Play:wght@700&display=swap');
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-flow: column;
+            text-align: center;
+            height: 100vh;
+        }
+        h1 {
+            font-family: 'Play', sans-serif;
+            color: #1410ed;
+            font-size: 30px;
+            margin-bottom: 28px;
+        }
+        button {
+            padding: 8px 19px;
+            margin: 0 15px;
+            background-color: #463d3d;
+            border: none;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: #000;
+        }
+        .optional_box ul {
+            list-style: none;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 49px;
+        }
+        .raw{
+            width: 500px;            
+        }
+        div#text_box {
+            margin-top: 50px;
+            background-color: #f9f3f6;
+            padding: 20px 0;
+            border-radius: 9px;
+            color: #fd0000;
+            font-size: 22px;
+            font-family: 'Roboto', sans-serif;
+            display: none;
+        }
+        button.again{
+            display: none;
+            margin: 0 auto;
+            margin-top: 25px;
+        }
+        
+        
+
+    </Style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="raw">
+            <h1>Snake, Water, Gun Game</h1>
+        </div>
+        <div class="raw">
+            <div class="optional_box">
+                <div id="select">
+                    <button class="snake" onclick="s()">Snake</button>
+                    <button class="water" onclick="w()">Water</button>
+                    <button class="gun" onclick="g()">Gun</button>
+                </div>
+                <div id="text_box"> </div>             
+                <button class="again" onclick="play()">Play Agian</button>  
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        let tex = document.getElementById('text_box');
+        let cal = Math.floor(Math.random()*3);
+        let cpu = ["s","w","g"][cal];        
+        function s(){
+            let s = "s";
+            const first = function(cpu,s){
+                if(cpu === s){
+                    return "Nobay Win"
+                }
+                else if(cpu === "w" && s === "s"){
+                    return "User Win"
+                }
+                else if (cpu === "g" && s==="s"){
+                    return "Computer Win"
+                }                
+            }   
+            let result_one = first(cpu,s);  
+            document.querySelector("#text_box").style.cssText='display:block;';
+            document.querySelector("#text_box").innerHTML = (`<p>User is :- ${s}</p><br><p>Computer is :- ${cpu}</p><br> <p style="color:black;">Result :- ${result_one}</p>`);
+            document.querySelector(".again").style.cssText='display:block;'; 
+            document.querySelector(".tenor-gif-embed").style.cssText='display:block;';
+        }
+
+        function w(){
+            let w = "w";
+            const first = function(cpu,w){
+                if(cpu === w){
+                    return "Nobay Win"
+                }
+                else if(cpu === "g" && s === "w"){
+                    return "User Win"
+                }
+                else if (cpu === "s" && s==="w"){
+                    return "Computer Win"
+                }                
+            }   
+            let result_one = first(cpu,w);  
+            document.querySelector("#text_box").style.cssText='display:block;';
+            document.querySelector("#text_box").innerHTML = (`<p>User is :- ${w}</p><br><p>Computer is :- ${cpu}</p><br> <p>Result :- ${result_one}</p>`);
+            document.querySelector(".again").style.cssText='display:block;'; 
+            document.querySelector(".tenor-gif-embed").style.cssText='display:block;';  
+        }
+
+        function g(){
+            let g = "g";
+            const first = function(cpu,g){
+                if(cpu === g){
+                    return "Nobay Win"
+                }
+                else if(cpu === "s" && s === "g"){
+                    return "User Win"
+                }
+                else if (cpu === "w" && s==="g"){
+                    return "Computer Win"
+                }                
+            }   
+            let result_one = first(cpu,g);  
+            document.querySelector("#text_box").style.cssText='display:block;';
+            document.querySelector("#text_box").innerHTML = (`<p>User is :- ${g}</p><br><p>Computer is :- ${cpu}</p><br> <p>Result :- ${result_one}</p>`); 
+            document.querySelector(".again").style.cssText='display:block;'; 
+            document.querySelector(".tenor-gif-embed").style.cssText='display:block;';             
+        }
+        function play(){
+            location.reload();
+        }
+
+
+                
+    </script>
+    
+</body>
+</html>
